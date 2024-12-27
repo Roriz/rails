@@ -47,4 +47,10 @@
 
     *Jonathan del Strother*
 
+*   `Post.set_callback(:update, :before, :do_something, if: proc(&:run_callback?))` now doesn't raise an error.
+
+    Previously it would raise an error because the `if` condition was a symbolProc.
+
+    *Radamés Roriz*
+
 Please check [8-0-stable](https://github.com/rails/rails/blob/8-0-stable/activesupport/CHANGELOG.md) for previous changes.
