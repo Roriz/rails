@@ -500,7 +500,7 @@ module ActiveSupport
           when ::Proc
             if filter.arity > 1
               InstanceExec2.new(filter)
-            elsif filter.arity > 0
+            elsif filter.arity > 0 || filter.arity < 0
               InstanceExec1.new(filter)
             else
               InstanceExec0.new(filter)

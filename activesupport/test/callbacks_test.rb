@@ -189,6 +189,8 @@ module CallbacksTest
     before_save Proc.new { |r| r.history << "b00m" }, if: Proc.new { |r| false }
     before_save Proc.new { |r| r.history << [:before_save, :proc] }, unless: Proc.new { |r| false }
     before_save Proc.new { |r| r.history << "b00m" }, unless: Proc.new { |r| true }
+    before_save Proc.new { |r| r.history << "b00m" }, unless: proc(&:count)
+    before_save Proc.new { |r| r.history << "b00m" }, unless: lambda(&:count)
     # symbol
     before_save Proc.new { |r| r.history << [:before_save, :symbol] }, if: :yes
     before_save Proc.new { |r| r.history << "b00m" }, if: :no
